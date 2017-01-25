@@ -28,7 +28,7 @@ class Article(Model):
     title = StringField(ddl='varchar(256)')
     summary = StringField(ddl='varchar(512)')
     content = TextField()
-    created_a = FloatField(default=time.time())
+    created_at = FloatField(default=time.time())
 
 class Comment(Model):
     __table__ = 't_comments'

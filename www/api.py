@@ -1,7 +1,31 @@
 #!/usr/bin/env python
 # encoding: utf-8
+import logging;logging.basicConfig(level=logging.INFO)
 from coreweb import get, post
-from models import User
+from models import User, Article
+
+@post('/api/article/list')
+async def article_list():
+    articles = await Article.findAll()
+    return dict({'articles': articles})
+
+@post('/api/article/get/{id}')
+async def article_get(id):
+    article = await Article.find(id)
+    return article
+
+@post('/api/article/create')
+async def article_create(**content):
+    article = Article(**content)
+    await article.save()
+    return dict({'code': 1})
+
+@post('/api/article/delete')
+async def article_delete(*, id):
+    article = await Article.find(id)
+    if article:
+        await article.delete()
+    return dict({'code': 1})
 
 @get('/user/all')
 async def list_user():
@@ -31,6 +55,3 @@ def id(request, number):
 def id(number,request):
     return dict(api='api/{id}',method=request.method, id=number, code=200, desc='OK')
 
-
-def article():
-    pass

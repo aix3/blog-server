@@ -1,0 +1,7 @@
+setup.py
+Blog.egg-info/PKG-INFO
+Blog.egg-info/SOURCES.txt
+Blog.egg-info/dependency_links.txt
+Blog.egg-info/not-zip-safe
+Blog.egg-info/requires.txt
+Blog.egg-info/top_level.txt
