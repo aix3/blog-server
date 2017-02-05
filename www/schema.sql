@@ -26,6 +26,7 @@ CREATE TABLE `t_articles`(
     `user_name` VARCHAR(20),
     `user_avatar` VARCHAR(512),
     `title` VARCHAR(256) NOT NULL,
+    `poster_url` VARCHAR(1024),
     `summary` VARCHAR(512),
     `content` TEXT,
     `created_at` FLOAT NOT NULL,

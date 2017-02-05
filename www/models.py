@@ -16,7 +16,7 @@ class User(Model):
     passwd = StringField(ddl='varchar(256)')
     admin = BooleanField()
     avatar = StringField(ddl='varchar(512)')
-    created_at = FloatField(default=time.time())
+    created_at = FloatField(default=time.time()*1000)
 
 class Article(Model):
     __table__ = 't_articles'
@@ -26,9 +26,10 @@ class Article(Model):
     user_name = StringField(ddl='varchar(20)')
     user_avatar = StringField(ddl='varchar(512)')
     title = StringField(ddl='varchar(256)')
+    poster_url = StringField(ddl='varchar(1024)')
     summary = StringField(ddl='varchar(512)')
     content = TextField()
-    created_at = FloatField(default=time.time())
+    created_at = FloatField(default=time.time()*1000)
 
 class Comment(Model):
     __table__ = 't_comments'
@@ -39,7 +40,7 @@ class Comment(Model):
     user_avatar = StringField(ddl='varchar(512)')
     article_id = StringField(ddl='varchar(50)')
     content = TextField()
-    created_at = FloatField(default=time.time())
+    created_at = FloatField(default=time.time()*1000)
 
 if __name__ == '__main__':
     print(next_id())
